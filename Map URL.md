@@ -1,0 +1,35 @@
+# 1) User action
+1) get cities list: (../city);
+2) get houses list by cityID (../house/byCity) (*)
+3) get floor with flats by houseID(../floor/byHouse + ../flat/byFloor) (**)
+4) get flat by id (../flat/id)
+5) create contract (../contract/create) (*)
+6) get contracts list by personID (../contract/byPerson) (*)
+7) get contract by id(../contract/id) 
+8) update person (../person/update)
+9) auth person (../person/check) (*)
+10) create person (../person/create)
+# 2) Admin action
+1) get cities list (../city)
+2) get city by id (../city/id)
+3) create city (../city/create)
+4) update city (../city/update)
+5) delete city (../city/delete) !!! check cascade delete
+6) get houses list (../house)
+7) get house by id (../house/id)
+8) create house (../house/create)
+9) update house (../house/update)
+10) delete house (../house/delete) !!! check cascade delete
+11) get floors list (../floor)
+12) get floor by id (../floor/id)
+13) create floor (../floor/create)
+14) update floor (../floor/update)
+15) delete floor (../floor/delete) !!! check cascade delete
+16) get flats list (../flat)
+17) get flat by id (../flat/id)
+18) create flat (../flat/create)
+19) update flat (../flat/update)
+20) delete flat (../flat/delete)
+21) get contracts list (../contract)
+22) get contract by id (../contract/id)
+23) change status (../contract/status)
