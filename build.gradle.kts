@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.2.2"
     id("io.spring.dependency-management") version "1.1.4"
+    kotlin("plugin.lombok") version "1.8.10"
+    id("io.freefair.lombok") version "5.3.0"
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
 }
@@ -19,6 +21,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.hibernate.orm:hibernate-core:6.2.6.Final")
     implementation("jakarta.validation:jakarta.validation-api:3.0.2")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
