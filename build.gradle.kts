@@ -3,10 +3,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.2.2"
     id("io.spring.dependency-management") version "1.1.4"
-    kotlin("plugin.lombok") version "1.8.10"
-    id("io.freefair.lombok") version "5.3.0"
+    kotlin("plugin.lombok") version "1.9.22"
+    id("io.freefair.lombok") version "8.1.0"
     kotlin("jvm") version "1.9.22"
+    id("org.jetbrains.kotlin.kapt") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
+    kotlin("plugin.serialization") version "1.9.22"
 }
 
 group = "com.example"
@@ -16,11 +18,16 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17
 }
 
+/*kapt {
+    correctErrorTypes = true
+}*/
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.hibernate.orm:hibernate-core:6.2.6.Final")
     implementation("jakarta.validation:jakarta.validation-api:3.0.2")
@@ -31,7 +38,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.boot:spring-boot-starter")
     runtimeOnly("org.postgresql:postgresql")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.2.4")
+    implementation("org.mapstruct:mapstruct:1.5.5.Final")
+    kapt("org.mapstruct:mapstruct-processor:1.5.5.Final")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 }
 
 tasks.withType<KotlinCompile> {

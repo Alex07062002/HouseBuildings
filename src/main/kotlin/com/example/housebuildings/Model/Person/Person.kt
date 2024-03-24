@@ -1,35 +1,38 @@
 package com.example.housebuildings.Model.Person
 
-import com.example.housebuildings.Model.BaseEntity
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.Table
+import jakarta.persistence.*
+import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
+import lombok.Data
 
+@Data
 @Entity
 @Table(name = "person")
-data class Person(
+class Person(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @get: NotBlank
+    @Column(name = "person_id", nullable = false)
+    var id : Long? = null,
 
     @Column(name = "name_surname", nullable = false)
     @get: NotBlank
-    val name : String = "",
-
-    /*@Column(name = "surname", nullable = false) //FIXME Parser name_surname
-    @get: NotBlank
-    val surname : String = "",*/
+    var nameSurname : String = "",
 
     @Column(name = "email", nullable = false)
     @get: NotBlank
-    val email : String = "",
+    @Email
+    var email : String = "",
 
     @Column(name = "login", unique = true, nullable = false)
     @get: NotBlank
-    val login : String = "",
+    var login : String = "",
 
     @Column(name = "password", nullable = false)
     @get: NotBlank
-    val password : String = "", // TODO Encript!!
+    var password : String = "", // TODO crypt!!
 
     @Column(name = "role", nullable = false)
-    val role : Role = Role.user
-) : BaseEntity<Long>()
+    @Enumerated(EnumType.STRING)
+    var role : Role = Role.user
+)

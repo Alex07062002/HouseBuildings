@@ -25,3 +25,6 @@ and Front-end (axios).
 # Additional information
 
 [Design web in figma](https://www.figma.com/file/uqhGjRh858z30ljJQpkf02/FlatsSeller?type=whiteboard&node-id=0-1&t=XOUebJ8woJus2ZW5-0)
+
+# Future
+1) integration with liquibase

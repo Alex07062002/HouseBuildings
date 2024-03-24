@@ -1,7 +1,6 @@
 package com.example.housebuildings.Repository
 
 import com.example.housebuildings.Model.Flat.Flat
-import com.example.housebuildings.Model.House
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
